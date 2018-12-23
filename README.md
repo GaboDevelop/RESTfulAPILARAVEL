@@ -10,6 +10,7 @@ Proyecto REST realizado con fines academicos y para quienes deseen aprender como
 
 - PHP 7.2
 - Composer.
+- Apache 2.
 - LARAVEL 5.4
 - MYSQL ( támbien puede usar Pgsql and SQLserver / Also can uses Pgsql and SQLserver). 
 - JSON/XML.
@@ -50,7 +51,7 @@ Editar las especificaciones resaltadas con la informacion de su base de datos (m
 
 Al configurar y crear su bd en cualquiera de las plataformas nombradas en el punto anterior , debe abrir su terminal de comandos y ubicarla en la carpeta raíz de su proyecto.
 
-After configure and create your db in any platform previously named , open your command terminal in the route of project.
+*After configure and create your db in any platform previously named , open your command terminal in the route of project.*
 
 Escriba el siguiente comando / write next command: 
 
@@ -58,13 +59,214 @@ Escriba el siguiente comando / write next command:
 
 Si tiene problemas al hacer la migración , por favor siga la siguiente documentación : https://laravel.com/docs/5.4/migrations
 
-If have problems with migrate , please follow this documentation:  https://laravel.com/docs/5.4/migrations
+*If have problems with migrate , please follow this documentation:*  https://laravel.com/docs/5.4/migrations
 
 
-## Como usar / how use : 
+## Como usar Cliente / how use Cliente: 
 
-  - Crear Cliente / Create Client : 
+  - Servicio crear Cliente / Service Create Client : 
     - Metodo/methos:  **POST**
-    - Ruta / Route :  <your localhost>/clientes
-    
-      
+    - Ruta / Route :  http://yourlocalhost/clientes
+    - formato / format : JSON
+    - Atributos a enviar / Attributes send : "nombres","apellidos","email"
+    - Retorna / Return : 
+    ~~~
+          {
+            "nombres": "Teo Alejandro",
+            "apellidos": "Gutierrez Parra",
+            "email": "prueba@gmail.com",
+            "updated_at": "2018-12-23 20:35:26",
+            "created_at": "2018-12-23 20:35:26",
+            "id": 1
+          }
+  
+  - Servicio retornar Clientes / Service get Clients : 
+    - Metodo/methos:  **GET**
+    - Ruta / Route :  http://yourlocalhost/clientes
+    - formato / format : JSON
+    - Retorna / Return : 
+        
+               [
+                  {
+                      "id": 2,
+                      "email": "rafael@gmail.com",
+                      "nombres": "Rafael Enrique",
+                      "apellidos": "Ortega Vega",
+                      "created_at": "2018-12-22 23:52:12",
+                      "updated_at": "2018-12-23 04:05:41"
+                  },
+                  {
+                      "id": 3,
+                      "email": "gabriel@gmail.com",
+                      "nombres": "Gabriel Enrique",
+                      "apellidos": "Ortega Colmenares",
+                      "created_at": "2018-12-23 03:11:56",
+                      "updated_at": "2018-12-23 03:11:56"
+                  },
+              ]
+         
+  - Servicio retorna Cliente por email / Service Create Client by email : 
+    - Metodo/methos:  **GET**
+    - Ruta / Route :  http://yourlocalhost/clientes/nombres/{email}
+    - formato / format : JSON
+    - Atributos a enviar / Attributes send : "email"
+    - Retorna / Return : 
+        ~~~
+          {
+            "nombres": "Teo Alejandro",
+            "apellidos": "Gutierrez Parra",
+          }
+ - Servicio retorna Cliente por id / Service get Client by id : 
+    - Metodo/methos:  **GET**
+    - Ruta / Route :  http://yourlocalhost/clientes/{id}
+    - formato / format : JSON
+    - Atributos a enviar / Attributes send : "id"
+    - Retorna / Return : 
+      ~~~
+        {
+          "id": 3,
+          "email": "gabriel@gmail.com",
+          "nombres": "Gabriel Enrique",
+          "apellidos": "Ortega Colmenares",
+          "created_at": "2018-12-23 03:11:56",
+          "updated_at": "2018-12-23 03:11:56"
+        }
+- Servicio editar Cliente por id / Service edit Client by id : 
+  - Metodo/methos:  **POST**
+  - Ruta / Route :  http://yourlocalhost/clientes/{id}
+  - formato / format : JSON
+  - Atributos a enviar / Attributes send : "id","nombres","apellidos","email"
+  - Retorna / Return : 
+      ~~~
+        {
+          "id": 3,
+          "email": "luis@gmail.com",
+          "nombres": "Luis Enrique",
+          "apellidos": "Ortega Colmenares",
+          "created_at": "2018-12-23 09:20:58",
+          "updated_at": "2018-12-23 09:10:46"
+        }
+- Servicio eliminar Cliente por id / Service delete Cliente by id : 
+  - Metodo/methos:  **GET**
+  - Ruta / Route :  http://yourlocalhost/clientes/delete/{id}
+  - formato / format : JSON
+  - Atributos a enviar / Attributes send : "id"
+  - Retorna / Return : 
+      ~~~
+        {
+          "id": 3,
+          "email": "luis@gmail.com",
+          "nombres": "Luis Enrique",
+          "apellidos": "Ortega Colmenares",
+          "created_at": "2018-12-23 09:20:58",
+          "updated_at": "2018-12-23 09:10:46"
+        }
+## Como usar servicio Transacciones / how use service Transacciones: 
+
+  - Servicio crear Transacciones / Service Create Transacciones : 
+    - Metodo/methos:  **POST**
+    - Ruta / Route :  http://yourlocalhost/transacciones
+    - formato / format : JSON
+    - Atributos a enviar / Attributes send : "monto","fecha_compra","email"(email de cliente ya registrado)
+    - Retorna / Return : 
+       ~~~
+          {
+            "monto": "140",
+            "fecha_compra": "1998-10-12",
+            "cliente_id": 4,
+            "updated_at": "2018-12-23 21:30:11",
+            "created_at": "2018-12-23 21:30:11",
+            "id": 6
+          }
+  
+  - Servicio retornar Transacciones / Service get Transacciones : 
+    - Metodo/methos:  **GET**
+    - Ruta / Route :  http://yourlocalhost/transacciones
+    - formato / format : JSON
+    - Retorna / Return : 
+          
+            [
+              {
+                  "id": 1,
+                  "monto": 120,
+                  "fecha_compra": "1998-10-12",
+                  "cliente_id": 2,
+                  "created_at": "2018-12-23 02:54:16",
+                  "updated_at": "2018-12-23 02:54:16"
+              },
+              {
+                  "id": 2,
+                  "monto": 330,
+                  "fecha_compra": "2010-10-12",
+                  "cliente_id": 3,
+                  "created_at": "2018-12-23 03:27:54",
+                  "updated_at": "2018-12-23 03:27:54"
+              },
+              {
+                  "id": 3,
+                  "monto": 984,
+                  "fecha_compra": "2011-10-12",
+                  "cliente_id": 3,
+                  "created_at": "2018-12-23 03:28:06",
+                  "updated_at": "2018-12-23 03:28:06"
+              }
+          ]
+        
+  - Servicio retorna Transacciones por email / Service Get Transacciones by email : 
+    - Metodo/methos:  **GET**
+    - Ruta / Route :  http://yourlocalhost/transacciones/{email}
+    - formato / format : JSON
+    - Atributos a enviar / Attributes send : "email"
+    - Retorna / Return : 
+        ~~~
+          [
+              {
+                  "id": 2,
+                  "monto": 330,
+                  "fecha_compra": "2010-10-12",
+                  "cliente_id": 3,
+                  "created_at": "2018-12-23 03:27:54",
+                  "updated_at": "2018-12-23 03:27:54"
+              },
+              {
+                  "id": 3,
+                  "monto": 984,
+                  "fecha_compra": "2011-10-12",
+                  "cliente_id": 3,
+                  "created_at": "2018-12-23 03:28:06",
+                  "updated_at": "2018-12-23 03:28:06"
+              }
+          
+          ]
+
+- Servicio editar Transacciones por id / Service edit Transacciones by id : 
+  - Metodo/methos:  **POST**
+  - Ruta / Route :  http://yourlocalhost/transacciones/{id}
+  - formato / format : JSON
+  - Atributos a enviar / Attributes send : "id","monto","fecha_compra","email"
+  - Retorna / Return : 
+      ~~~
+            {
+                  "id": 2,
+                  "monto": 750,
+                  "fecha_compra": "2015-02-15",
+                  "cliente_id": 3,
+                  "created_at": "2019-10-02 03:27:54",
+                  "updated_at": "2020-04-23 07:15:20"
+              },
+- Servicio eliminar Cliente por id / Service delete Client by id : 
+  - Metodo/methos:  **GET**
+  - Ruta / Route :  http://yourlocalhost/transacciones/delete/{id}
+  - formato / format : JSON
+  - Atributos a enviar / Attributes send : "id"
+  - Retorna / Return : 
+      ~~~
+        {
+          "id": 2,
+          "monto": 750,
+          "fecha_compra": "2015-02-15",
+          "cliente_id": 3,
+          "created_at": "2019-10-02 03:27:54",
+          "updated_at": "2020-04-23 07:15:20"
+          }
+
