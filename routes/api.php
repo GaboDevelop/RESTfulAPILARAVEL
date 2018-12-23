@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('clientes','ClientesController@getALL')->name('getAllClientes');
 Route::post('clientes','ClientesController@add')->name('addClientes');
+Route::get('clientes/{id}','ClientesController@get')->name('getClientes');
+Route::post('clientes/{id}','ClientesController@edit')->name('editClientes');
+Route::get('clientes/delete/{id}','ClientesController@delete')->name('deleteClientes');
