@@ -29,6 +29,10 @@ class ClientesController extends Controller
         return ($prueba[0])['id'];
     }
 
+    public  function  getNames($email){
+        $cliente =  Clientes::where('email', $email)->get(['nombres','apellidos']);
+        return $cliente;
+    }
 
 
     public function  edit($id, Request $request){
