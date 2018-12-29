@@ -66,7 +66,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
 
   - Servicio crear Cliente / Service Create Client : 
     - Metodo/methos:  **POST**
-    - Ruta / Route :  http://yourlocalhost/clientes
+    - Ruta / Route :  http://yourlocalhost/api/clientes
     - formato / format : JSON
     - Atributos a enviar / Attributes send : "nombres","apellidos","email"
     - Retorna / Return : 
@@ -82,7 +82,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
   
   - Servicio retornar Clientes / Service get Clients : 
     - Metodo/methos:  **GET**
-    - Ruta / Route :  http://yourlocalhost/clientes
+    - Ruta / Route :  http://yourlocalhost/api/clientes
     - formato / format : JSON
     - Retorna / Return : 
         
@@ -107,7 +107,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
          
   - Servicio retorna Cliente por email / Service Create Client by email : 
     - Metodo/methos:  **GET**
-    - Ruta / Route :  http://yourlocalhost/clientes/nombres/{email}
+    - Ruta / Route :  http://yourlocalhost/api/clientes/nombres/{email}
     - formato / format : JSON
     - Atributos a enviar / Attributes send : "email"
     - Retorna / Return : 
@@ -118,7 +118,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
           }
  - Servicio retorna Cliente por id / Service get Client by id : 
     - Metodo/methos:  **GET**
-    - Ruta / Route :  http://yourlocalhost/clientes/{id}
+    - Ruta / Route :  http://yourlocalhost/api/clientes/{id}
     - formato / format : JSON
     - Atributos a enviar / Attributes send : "id"
     - Retorna / Return : 
@@ -133,7 +133,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
         }
 - Servicio editar Cliente por id / Service edit Client by id : 
   - Metodo/methos:  **POST**
-  - Ruta / Route :  http://yourlocalhost/clientes/{id}
+  - Ruta / Route :  http://yourlocalhost/api/clientes/{id}
   - formato / format : JSON
   - Atributos a enviar / Attributes send : "id","nombres","apellidos","email"
   - Retorna / Return : 
@@ -148,7 +148,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
         }
 - Servicio eliminar Cliente por id / Service delete Cliente by id : 
   - Metodo/methos:  **GET**
-  - Ruta / Route :  http://yourlocalhost/clientes/delete/{id}
+  - Ruta / Route :  http://yourlocalhost/api/clientes/delete/{id}
   - formato / format : JSON
   - Atributos a enviar / Attributes send : "id"
   - Retorna / Return : 
@@ -165,7 +165,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
 
   - Servicio crear Transacciones / Service Create Transacciones : 
     - Metodo/methos:  **POST**
-    - Ruta / Route :  http://yourlocalhost/transacciones
+    - Ruta / Route :  http://yourlocalhost/api/transacciones
     - formato / format : JSON
     - Atributos a enviar / Attributes send : "monto","fecha_compra","email"(email de cliente ya registrado)
     - Retorna / Return : 
@@ -181,7 +181,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
   
   - Servicio retornar Transacciones / Service get Transacciones : 
     - Metodo/methos:  **GET**
-    - Ruta / Route :  http://yourlocalhost/transacciones
+    - Ruta / Route :  http://yourlocalhost/api/transacciones
     - formato / format : JSON
     - Retorna / Return : 
           
@@ -214,7 +214,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
         
   - Servicio retorna Transacciones por email / Service Get Transacciones by email : 
     - Metodo/methos:  **GET**
-    - Ruta / Route :  http://yourlocalhost/transacciones/{email}
+    - Ruta / Route :  http://yourlocalhost/api/transacciones/{email}
     - formato / format : JSON
     - Atributos a enviar / Attributes send : "email"
     - Retorna / Return : 
@@ -241,7 +241,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
 
 - Servicio editar Transacciones por id / Service edit Transacciones by id : 
   - Metodo/methos:  **POST**
-  - Ruta / Route :  http://yourlocalhost/transacciones/{id}
+  - Ruta / Route :  http://yourlocalhost/api/transacciones/{id}
   - formato / format : JSON
   - Atributos a enviar / Attributes send : "id","monto","fecha_compra","email"
   - Retorna / Return : 
@@ -256,7 +256,7 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
               },
 - Servicio eliminar Cliente por id / Service delete Client by id : 
   - Metodo/methos:  **GET**
-  - Ruta / Route :  http://yourlocalhost/transacciones/delete/{id}
+  - Ruta / Route :  http://yourlocalhost/api/transacciones/delete/{id}
   - formato / format : JSON
   - Atributos a enviar / Attributes send : "id"
   - Retorna / Return : 
