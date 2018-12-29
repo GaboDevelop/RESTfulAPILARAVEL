@@ -61,6 +61,10 @@ Si tiene problemas al hacer la migración , por favor siga la siguiente document
 
 *If have problems with migrate , please follow this documentation:*  https://laravel.com/docs/5.4/migrations
 
+## NOTA/NOTE:
+  Recuerde crear antes que todo su archivo .env donde colocara la información de su base de datos , así como támbien verificar que tiene composer instalado en el proyecto y támbien generar el key de su aplicacipon con:
+  
+  `$ php artisan key:generate`
 
 ## Como usar Cliente / how use Cliente: 
 
