@@ -1,22 +1,22 @@
 version: "2"
 
 services:
-     mysql:
-         image: mysql
-         ports:
-             - "3306:3306"
-         volumes:
-             - /misdatos/mysql:/var/lib/mysql
-         environment:
-             MYSQL_USER: root
-             MYSQL_PASSWORD: secret
-             MYSQL_DATABASE: rest
-             MYSQL_ROOT_PASSWORD: secret
-      web:
-          build: .
-          ports:
-              - 8000:80
-          volumes:
-              - ./:/opt/data 
-          depends_on:
-              - mysql
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - /misdatos/mysql:/var/lib/mysql
+    environment:
+      MYSQL_USER: root
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: rest
+      MYSQL_ROOT_PASSWORD: secret
+  web:
+    build: .
+    ports:
+      - 8000:80
+    volumes:
+      - ./:/opt/data 
+    depends_on:
+      - mysql
