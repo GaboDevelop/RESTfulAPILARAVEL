@@ -8,10 +8,10 @@ services:
     volumes:
       - /misdatos/mysql:/var/lib/mysql
     environment:
-      MYSQL_USER: root
-      MYSQL_PASSWORD: secret
+      MYSQL_USER: usuario
+      MYSQL_PASSWORD: 1234
       MYSQL_DATABASE: rest
-      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: 1234
   web:
     build: .
     ports:
