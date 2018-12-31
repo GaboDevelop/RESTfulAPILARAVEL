@@ -12,7 +12,8 @@ Proyecto REST realizado con fines academicos y para quienes deseen aprender como
 - Composer.
 - Apache 2.
 - LARAVEL 5.4
-- MYSQL ( támbien puede usar Pgsql and SQLserver / Also can uses Pgsql and SQLserver). 
+- MYSQL. 
+- Docker
 - JSON/XML.
 - POSTMAN ( para probar funcionalidad del servicio / for try out functionality of services).
 
@@ -36,31 +37,33 @@ Proyecto REST realizado con fines academicos y para quienes deseen aprender como
   ~~~
     routes/api.php
   ~~~
-  
-## Configurar BD / Configure DB : 
-  ![Alt text](img/1.png) Ruta/Route:
+## Configurar IMAGEN DOCKER / Configure DOCKER IMAGE : 
+ 
+ *(se da por hecho que tiene docker instalado)*
+ En su terminal de comandos ubicarse Dentro de la carpeta del proyecto entonces a 
+ ~~~
+    ./laradock
   ~~~
-    /.env
-  ~~~ 
-Editar las especificaciones resaltadas con la informacion de su base de datos (mysql , pgsql , sqlserver).
-
-*Edit highlighted specifications with information of your database (mysql,pgsql,sqlserver)*.
-
-
-### Migrar BD / Migrate DB:
-
-Al configurar y crear su bd en cualquiera de las plataformas nombradas en el punto anterior , debe abrir su terminal de comandos y ubicarla en la carpeta raíz de su proyecto.
-
-*After configure and create your db in any platform previously named , open your command terminal in the route of project.*
-
-Escriba el siguiente comando / write next command: 
-
-`$ php artisan migrate`
-
-Si tiene problemas al hacer la migración , por favor siga la siguiente documentación : https://laravel.com/docs/5.4/migrations
-
-*If have problems with migrate , please follow this documentation:*  https://laravel.com/docs/5.4/migrations
-
+  Dentro de la carpeta ejecutar el siguiente comando:
+  
+  `$ docker-compose up -d apache2 mysql workspace`
+  
+  Luego de cargar sus imagenes , ejecutar el siguiente comando en el mismo directorio :
+  
+  
+  
+  Si todo se concreto normalmente debío redireccionar el directorio de su terminal a :
+  
+  `$ var/www`
+  
+  Ahi ejecute los siguientes comando : 
+  
+  `$ composer install`
+  
+  `$ php artisan migrate`
+  
+  Debe haber migrado las tablas de manera exitosa , ya puede hacer uso de el API utilizando 
+  
 ## NOTA/NOTE:
   Recuerde crear antes que todo su archivo .env donde colocara la información de su base de datos , así como támbien verificar que tiene composer instalado en el proyecto y támbien generar el key de su aplicacipon con:
   
